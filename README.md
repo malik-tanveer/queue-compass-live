@@ -1,160 +1,200 @@
-# Queue Compass Live
+# QueueFlow — Smart Digital Queue Management
 
-Build a fully functional, modern SaaS web application called **QueueFlow** — a smart digital queue and appointment management platform for businesses.
+> **Waiting lines belong in the past.**
 
-## Core Concept
+QueueFlow is a modern digital queue and appointment management platform designed to help businesses eliminate physical waiting lines.
 
-QueueFlow helps businesses eliminate physical waiting lines. Customers can join a digital queue from their phone and track their position in real time, while business owners manage customers from a powerful dashboard.
+Customers can join a queue directly from their phone, receive a digital token, and track their position and estimated waiting time in real time. Meanwhile, businesses can manage their entire queue from one centralized dashboard.
 
-The product should feel like a real startup product, not a basic admin dashboard.
+![QueueFlow Preview](public/preview.png)
 
-## User Experience
+## Live Demo
 
-There are two main experiences:
+🚀 **Live Application:** https://queue-compass-live.lovable.app
 
-### 1. Business Dashboard
+## Features
 
-Create a professional dashboard where a business owner can:
+### 🏢 Business Dashboard
+
+QueueFlow provides businesses with a powerful dashboard to manage their daily customer flow.
 
 - View the live queue in real time
-- See the currently serving customer
-- Click **Call Next** to move to the next customer
+- See the customer currently being served
+- Call the next customer with one action
 - Mark customers as completed or skipped
-- Add and manage multiple services
-- Set estimated service duration
-- View today's total customers and completed customers
-- View average waiting time
 - Pause or reopen the queue
+- Manage multiple services
+- Configure estimated service durations
+- Monitor daily queue statistics
 
-Each customer card should show:
+### 📱 Customer Experience
+
+Customers can join and track the queue directly from their mobile device.
+
+- Select a service
+- Enter customer details
+- Receive a digital token
+- Track live queue position
+- See the number of people ahead
+- View estimated waiting time
+- Receive real-time queue updates
+
+### 🎟️ Digital Token
+
+After joining the queue, customers receive a live digital ticket showing:
 
 - Token number
-- Customer name
-- Selected service
-- Queue status
+- Current queue position
+- Number of people ahead
 - Estimated waiting time
+- Live queue status
 
-### 2. Customer Queue Experience
+## Demo Business
 
-Create a clean mobile-first experience where a customer can:
+The application includes realistic demo data for **NovaCare Clinic**.
 
-- Scan or open a business queue link
-- Select a service
-- Enter their name and phone number
-- Receive a digital token
-- See their live queue position
-- See how many people are ahead of them
-- See an estimated waiting time
-- Get a beautiful confirmation screen
+### Available Services
 
-The customer queue screen should automatically update when the business moves to the next customer.
+| Service | Estimated Duration |
+|---------|-------------------|
+| General Consultation | 15 minutes |
+| Follow-up Consultation | 10 minutes |
+| Lab Test | 5 minutes |
 
-## Main Pages
+The demo queue includes customers in different states to create a realistic, interactive experience.
+
+## How It Works
+
+```text
+Customer Opens Queue Link
+          ↓
+Selects a Service
+          ↓
+Enters Name & Phone Number
+          ↓
+Receives Digital Token
+          ↓
+Tracks Position Live
+          ↓
+Business Calls Next Customer
+          ↓
+Queue Updates Automatically
+```
+
+## Product Pages
 
 ### Landing Page
 
-Create a modern SaaS landing page with:
+A modern SaaS landing page introducing QueueFlow and its core benefits.
 
-- Strong hero section
-- Headline: **"Waiting lines belong in the past."**
-- Short explanation of the product
-- Interactive product preview
-- Features section
-- How it works section
-- CTA to create a queue
+### Business Dashboard
 
-### Dashboard
+A centralized command center for managing customers, services, queue activity, and business settings.
 
-Include:
+### Public Queue
 
-- Sidebar navigation
-- Live Queue
-- Services
-- Analytics
-- Settings
+A mobile-first experience where customers can select a service and join the queue.
 
-The main dashboard should prominently display the current queue status and make the **Call Next** action easy to access.
+### My Token
 
-### Public Queue Page
+A live digital ticket where customers can track their queue position and estimated waiting time.
 
-Design this primarily for mobile users.
+## Tech Stack
 
-Show:
+- React
+- TypeScript
+- Vite
+- Tailwind CSS
+- shadcn/ui
+- Lucide Icons
+- Lovable
 
-- Business logo and name
-- Queue status
-- Service selection
-- Join queue form
+## Getting Started
 
-### My Token Page
+### Prerequisites
 
-After joining, show a visually appealing live ticket with:
+Make sure you have the following installed:
 
-- Large token number
-- Current position
-- Number of people ahead
-- Estimated waiting time
-- Live status indicator
+- Node.js
+- npm
 
-## Demo Data
+### Installation
 
-Create realistic demo data for a fictional business called **NovaCare Clinic**.
+Clone the repository:
 
-Include services such as:
+```bash
+git clone https://github.com/malik-tanveer/queue-compass-live.git
+```
 
-- General Consultation — 15 min
-- Follow-up Consultation — 10 min
-- Lab Test — 5 min
+Move into the project directory:
 
-Populate the queue with several sample customers in different statuses so the application looks alive immediately.
+```bash
+cd queue-compass-live
+```
 
-## Design Direction
+Install dependencies:
 
-Use a premium, modern SaaS aesthetic.
+```bash
+npm install
+```
 
-- Dark navy and near-black primary background
-- Clean white text
-- Subtle blue accents
-- Glassmorphism only where it improves the interface
-- Smooth micro-interactions and transitions
-- Rounded cards and clean spacing
-- Lucide icons
-- Responsive design with special attention to mobile
+Start the development server:
 
-Avoid excessive gradients, excessive colors, or a generic template appearance.
-
-## Important Product Details
-
-Make the application feel interactive and functional.
-
-- Queue positions should update dynamically
-- Calling the next customer should update the queue state
-- Estimated waiting time should change based on the queue
-- Include empty states where appropriate
-- Include loading and success feedback
-- Make all navigation and buttons functional
-
-Build this as a polished product prototype with a realistic user flow and production-quality UI.
-
-This project was built with [Lovable](https://lovable.dev).
-
-**Live app**: https://queue-compass-live.lovable.app
-
-## Build with Lovable
-
-Continue developing this project in the [Lovable editor](https://lovable.dev/projects/148d2283-f224-4b1c-8ed0-53dcccf765ef).
-
-- **Ship faster**: describe what you want to build and Lovable handles the code.
-- **Stay in sync**: every change made in Lovable is committed straight to this repository.
-- **Full ownership**: this code is yours. Push to `main` on GitHub and your changes sync back into Lovable, ready for your next prompt.
-
-## Development
-
-Prefer working locally? You need Node.js and npm — [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating).
-
-```sh
-git clone <this-repository-url>
-cd <repository-name>
-npm i
+```bash
 npm run dev
 ```
+
+Open the local URL shown in your terminal to view the application.
+
+## Design System
+
+QueueFlow follows a premium SaaS design direction:
+
+- Dark navy and near-black backgrounds
+- Clean white typography
+- Subtle blue accents
+- Rounded interface elements
+- Smooth micro-interactions
+- Responsive layouts
+- Mobile-first customer experience
+
+The goal is to make QueueFlow feel like a modern startup product rather than a traditional admin dashboard.
+
+## Future Improvements
+
+- Real-time backend integration
+- Customer notifications
+- QR code queue access
+- Multiple business locations
+- Appointment scheduling
+- Advanced analytics
+- Live display mode for waiting areas
+
+## Project Structure
+
+```text
+queue-compass-live/
+│
+├── public/
+├── src/
+│   ├── components/
+│   ├── pages/
+│   ├── hooks/
+│   └── lib/
+│
+├── package.json
+├── vite.config.ts
+└── README.md
+```
+
+## Author
+
+**Tanveer Malik**
+
+- GitHub: https://github.com/malik-tanveer
+- Portfolio: https://tanveer-49ddc.web.app
+- LinkedIn: https://www.linkedin.com/in/malik-tanveer-8bbaa13b2/
+
+---
+
+Built as a modern SaaS product prototype to demonstrate digital queue management, interactive user flows, and responsive web application design.
