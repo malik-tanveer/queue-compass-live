@@ -199,7 +199,7 @@ function LiveQueue({ state, now }: { state: QueueState; now: number }) {
         <div className="grid grid-cols-2 gap-4">
           <StatCard label="Today" value={stats.total} hint="customers checked in" icon={<Users />} />
           <StatCard label="Completed" value={stats.completed} hint={`${stats.skipped} skipped`} icon={<UserCheck />} />
-          <StatCard label="Waiting" value={waiting.length} hint={waiting.length ? `~${formatMinutes(estimateWait(state, waiting[waiting.length - 1].id, now))} for last` : "line is empty"} icon={<Clock />} />
+          <StatCard label="Waiting" value={waiting.length} hint={waiting.length ? `~${formatMinutes(estimateWait(state, waiting.at(-1)!.id, now))} for last` : "line is empty"} icon={<Clock />} />
           <StatCard label="Avg wait" value={<>{stats.avgWait}<span className="ml-1 text-base font-normal text-muted-foreground">min</span></>} hint={`avg service ${stats.avgService} min`} icon={<Timer />} />
         </div>
       </div>

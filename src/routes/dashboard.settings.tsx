@@ -50,7 +50,7 @@ function Settings({ business }: { business: Business }) {
 
   const save = (e: React.FormEvent) => {
     e.preventDefault();
-    if (form.name.trim().length < 2) return toast.error("Business name is required");
+    if (form.name.trim().length < 2) { toast.error("Business name is required"); return; }
     setSaving(true);
     setTimeout(() => {
       queue.updateBusiness({ name: form.name.trim(), tagline: form.tagline.trim(), address: form.address.trim(), counterName: form.counterName.trim() || "Counter 1" });

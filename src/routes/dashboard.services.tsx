@@ -68,7 +68,7 @@ function NewServiceForm() {
 
   const submit = (e: React.FormEvent) => {
     e.preventDefault();
-    if (name.trim().length < 2) return toast.error("Give the service a name");
+    if (name.trim().length < 2) { toast.error("Give the service a name"); return; }
     queue.addService({ name: name.trim(), duration, description: description.trim(), active: true });
     toast.success(`${name.trim()} added`, { description: `${duration} min estimated duration` });
     setName("");
@@ -127,7 +127,7 @@ function ServiceCard({ service, inLine }: { service: Service; inLine: number }) 
             aria-label={`Delete ${service.name}`}
             className="size-8 text-muted-foreground hover:text-destructive"
             onClick={() => {
-              if (inLine > 0) return toast.error("Customers are still waiting for this service", { description: "Disable it instead, or clear the line first." });
+              if (inLine > 0) { toast.error("Customers are still waiting for this service", { description: "Disable it instead, or clear the line first." }); return; }
               queue.removeService(service.id);
               toast(`${service.name} deleted`);
             }}

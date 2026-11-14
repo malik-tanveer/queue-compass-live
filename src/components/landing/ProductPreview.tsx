@@ -36,7 +36,7 @@ export function ProductPreview() {
   };
   const add = () => {
     const services = ["general", "lab", "followup"];
-    setState((s) => joinQueue(s, { name: WALK_INS[walkIn % WALK_INS.length], phone: "", serviceId: services[walkIn % 3] }, CLOCK + walkIn).state);
+    setState((s) => joinQueue(s, { name: WALK_INS[walkIn % WALK_INS.length] ?? "Guest", phone: "", serviceId: services[walkIn % 3] ?? "general" }, CLOCK + walkIn).state);
     setWalkIn((n) => n + 1);
   };
   const reset = () => {

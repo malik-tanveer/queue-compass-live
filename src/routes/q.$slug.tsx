@@ -203,13 +203,13 @@ function PublicQueuePage() {
             </legend>
             <div className="space-y-2">
               <Label htmlFor="name">Full name</Label>
-              <Input id="name" autoComplete="name" value={name} onChange={(e) => setName(e.target.value)} placeholder="Jane Cooper" maxLength={50} aria-invalid={!!errors.name} className="h-12 rounded-xl bg-card text-base" />
-              {errors.name && <p className="text-xs text-destructive">{errors.name}</p>}
+              <Input id="name" autoComplete="name" value={name} onChange={(e) => setName(e.target.value)} placeholder="Jane Cooper" maxLength={50} aria-invalid={!!errors["name"]} className="h-12 rounded-xl bg-card text-base" />
+              {errors["name"] && <p className="text-xs text-destructive">{errors["name"]}</p>}
             </div>
             <div className="space-y-2">
               <Label htmlFor="phone">Phone number</Label>
-              <Input id="phone" type="tel" inputMode="tel" autoComplete="tel" value={phone} onChange={(e) => setPhone(e.target.value)} placeholder="+1 415 555 0100" maxLength={20} aria-invalid={!!errors.phone} className="h-12 rounded-xl bg-card text-base" />
-              {errors.phone ? <p className="text-xs text-destructive">{errors.phone}</p> : <p className="text-xs text-muted-foreground">Only used to reach you if you step away.</p>}
+              <Input id="phone" type="tel" inputMode="tel" autoComplete="tel" value={phone} onChange={(e) => setPhone(e.target.value)} placeholder="+1 415 555 0100" maxLength={20} aria-invalid={!!errors["phone"]} className="h-12 rounded-xl bg-card text-base" />
+              {errors["phone"] ? <p className="text-xs text-destructive">{errors["phone"]}</p> : <p className="text-xs text-muted-foreground">Only used to reach you if you step away.</p>}
             </div>
           </fieldset>
 

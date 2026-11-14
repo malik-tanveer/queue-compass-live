@@ -18,8 +18,8 @@ export function AddWalkInDialog({ services }: { services: Service[] }) {
 
   const submit = (e: React.FormEvent) => {
     e.preventDefault();
-    if (name.trim().length < 2) return toast.error("Enter the customer's name");
-    if (!serviceId) return toast.error("Pick a service");
+    if (name.trim().length < 2) { toast.error("Enter the customer's name"); return; }
+    if (!serviceId) { toast.error("Pick a service"); return; }
     const t = queue.addWalkIn({ name, phone, serviceId });
     toast.success(`${formatToken(t.token)} added to the queue`, { description: name.trim() });
     setName("");

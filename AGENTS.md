@@ -28,3 +28,9 @@ use the editor.
   own key and store it in Secrets.
 - **Secrets.** Lovable manages them. Do not put secret values in the repo.
 <!-- LOVABLE:END -->
+
+## Project rules
+
+- Queue rules (tokens, positions, wait estimates, Call Next) live as pure functions in `src/lib/queue-logic.ts` with tests beside them — keeps UI and any future backend sharing one tested source of truth.
+- Queue state is client-side in `src/lib/queue-store.ts` (localStorage + `storage` events for live cross-tab sync); components read it via `useQueueState()`, which is null during SSR, so pages render a skeleton first — avoids hydration mismatches. Swap this module for a backend to get cross-device sync.
+- The landing page preview runs on its own local copy of the demo state with a fixed clock so server and client render identically.

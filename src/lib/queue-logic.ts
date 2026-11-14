@@ -18,9 +18,9 @@ export interface Ticket {
   serviceId: string;
   status: TicketStatus;
   joinedAt: number;
-  calledAt?: number;
-  finishedAt?: number;
-  left?: boolean;
+  calledAt?: number | undefined;
+  finishedAt?: number | undefined;
+  left?: boolean | undefined;
 }
 
 export interface Business {
