@@ -10,33 +10,122 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as DashboardRouteImport } from './routes/dashboard'
+import { Route as DashboardIndexRouteImport } from './routes/dashboard.index'
+import { Route as DashboardAnalyticsRouteImport } from './routes/dashboard.analytics'
+import { Route as DashboardServicesRouteImport } from './routes/dashboard.services'
+import { Route as DashboardSettingsRouteImport } from './routes/dashboard.settings'
+import { Route as QSlugRouteImport } from './routes/q.$slug'
+import { Route as TTicketIdRouteImport } from './routes/t.$ticketId'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const DashboardRoute = DashboardRouteImport.update({
+  id: '/dashboard',
+  path: '/dashboard',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const DashboardIndexRoute = DashboardIndexRouteImport.update({
+  id: '/',
+  path: '/',
+  getParentRoute: () => DashboardRoute,
+} as any)
+const DashboardAnalyticsRoute = DashboardAnalyticsRouteImport.update({
+  id: '/analytics',
+  path: '/analytics',
+  getParentRoute: () => DashboardRoute,
+} as any)
+const DashboardServicesRoute = DashboardServicesRouteImport.update({
+  id: '/services',
+  path: '/services',
+  getParentRoute: () => DashboardRoute,
+} as any)
+const DashboardSettingsRoute = DashboardSettingsRouteImport.update({
+  id: '/settings',
+  path: '/settings',
+  getParentRoute: () => DashboardRoute,
+} as any)
+const QSlugRoute = QSlugRouteImport.update({
+  id: '/q/$slug',
+  path: '/q/$slug',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const TTicketIdRoute = TTicketIdRouteImport.update({
+  id: '/t/$ticketId',
+  path: '/t/$ticketId',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/dashboard': typeof DashboardRouteWithChildren
+  '/dashboard/analytics': typeof DashboardAnalyticsRoute
+  '/dashboard/services': typeof DashboardServicesRoute
+  '/dashboard/settings': typeof DashboardSettingsRoute
+  '/q/$slug': typeof QSlugRoute
+  '/t/$ticketId': typeof TTicketIdRoute
+  '/dashboard/': typeof DashboardIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/dashboard/analytics': typeof DashboardAnalyticsRoute
+  '/dashboard/services': typeof DashboardServicesRoute
+  '/dashboard/settings': typeof DashboardSettingsRoute
+  '/q/$slug': typeof QSlugRoute
+  '/t/$ticketId': typeof TTicketIdRoute
+  '/dashboard': typeof DashboardIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/dashboard': typeof DashboardRouteWithChildren
+  '/dashboard/analytics': typeof DashboardAnalyticsRoute
+  '/dashboard/services': typeof DashboardServicesRoute
+  '/dashboard/settings': typeof DashboardSettingsRoute
+  '/q/$slug': typeof QSlugRoute
+  '/t/$ticketId': typeof TTicketIdRoute
+  '/dashboard/': typeof DashboardIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths:
+    | '/'
+    | '/dashboard'
+    | '/dashboard/analytics'
+    | '/dashboard/services'
+    | '/dashboard/settings'
+    | '/q/$slug'
+    | '/t/$ticketId'
+    | '/dashboard/'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to:
+    | '/'
+    | '/dashboard/analytics'
+    | '/dashboard/services'
+    | '/dashboard/settings'
+    | '/q/$slug'
+    | '/t/$ticketId'
+    | '/dashboard'
+  id:
+    | '__root__'
+    | '/'
+    | '/dashboard'
+    | '/dashboard/analytics'
+    | '/dashboard/services'
+    | '/dashboard/settings'
+    | '/q/$slug'
+    | '/t/$ticketId'
+    | '/dashboard/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  DashboardRoute: typeof DashboardRouteWithChildren
+  QSlugRoute: typeof QSlugRoute
+  TTicketIdRoute: typeof TTicketIdRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -48,11 +137,81 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/dashboard': {
+      id: '/dashboard'
+      path: '/dashboard'
+      fullPath: '/dashboard'
+      preLoaderRoute: typeof DashboardRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/dashboard/': {
+      id: '/dashboard/'
+      path: '/'
+      fullPath: '/dashboard/'
+      preLoaderRoute: typeof DashboardIndexRouteImport
+      parentRoute: typeof DashboardRoute
+    }
+    '/dashboard/analytics': {
+      id: '/dashboard/analytics'
+      path: '/analytics'
+      fullPath: '/dashboard/analytics'
+      preLoaderRoute: typeof DashboardAnalyticsRouteImport
+      parentRoute: typeof DashboardRoute
+    }
+    '/dashboard/services': {
+      id: '/dashboard/services'
+      path: '/services'
+      fullPath: '/dashboard/services'
+      preLoaderRoute: typeof DashboardServicesRouteImport
+      parentRoute: typeof DashboardRoute
+    }
+    '/dashboard/settings': {
+      id: '/dashboard/settings'
+      path: '/settings'
+      fullPath: '/dashboard/settings'
+      preLoaderRoute: typeof DashboardSettingsRouteImport
+      parentRoute: typeof DashboardRoute
+    }
+    '/q/$slug': {
+      id: '/q/$slug'
+      path: '/q/$slug'
+      fullPath: '/q/$slug'
+      preLoaderRoute: typeof QSlugRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/t/$ticketId': {
+      id: '/t/$ticketId'
+      path: '/t/$ticketId'
+      fullPath: '/t/$ticketId'
+      preLoaderRoute: typeof TTicketIdRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
+interface DashboardRouteChildren {
+  DashboardAnalyticsRoute: typeof DashboardAnalyticsRoute
+  DashboardServicesRoute: typeof DashboardServicesRoute
+  DashboardSettingsRoute: typeof DashboardSettingsRoute
+  DashboardIndexRoute: typeof DashboardIndexRoute
+}
+
+const DashboardRouteChildren: DashboardRouteChildren = {
+  DashboardAnalyticsRoute: DashboardAnalyticsRoute,
+  DashboardServicesRoute: DashboardServicesRoute,
+  DashboardSettingsRoute: DashboardSettingsRoute,
+  DashboardIndexRoute: DashboardIndexRoute,
+}
+
+const DashboardRouteWithChildren = DashboardRoute._addFileChildren(
+  DashboardRouteChildren,
+)
+
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  DashboardRoute: DashboardRouteWithChildren,
+  QSlugRoute: QSlugRoute,
+  TTicketIdRoute: TTicketIdRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
